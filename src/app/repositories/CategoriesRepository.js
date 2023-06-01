@@ -6,8 +6,11 @@ class CategoriesRepository {
     return rows;
   }
 
+  //  Verificar retorno no Insomnia
   async findById(id) {
-    const [row] = await db.query('SELECT * FROM categories WHERE id = $1', [id]);
+    const [row] = await db.query(`
+    SELECT * FROM categories WHERE id = $1
+    `, [id]);
     return row;
   }
 
